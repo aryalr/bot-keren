@@ -1,7 +1,7 @@
 package dcbot
 
 import (
-	"bot-keren/pkg/ai" // Pastikan import path ini benar sesuai go.mod
+	"bot-keren/pkg/ai"
 	"fmt"
 	"log"
 	"os"
@@ -20,12 +20,9 @@ func Run(token string) {
 	}
 
 	// 2. Register Handler
-	// Karena MessageCreate ada di file yang sama (atau package sama),
-	// kita bisa memanggilnya langsung.
 	dg.AddHandler(MessageCreate)
 
 	// 3. Setup Intents
-	// Menggabungkan GuildMessages dan MessageContent
 	dg.Identify.Intents = discordgo.IntentsGuildMessages | discordgo.IntentMessageContent
 
 	// 4. Open Connection
@@ -46,8 +43,7 @@ func Run(token string) {
 	fmt.Println("\nBot dimatikan.")
 }
 
-// Handler pesan (Pastikan namanya MessageCreate dengan huruf besar M agar rapi,
-// meski sebenarnya di dalam package yang sama huruf kecil pun bisa diakses)
+// Message Handler
 func MessageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 	if m.Author.ID == s.State.User.ID {
 		return
