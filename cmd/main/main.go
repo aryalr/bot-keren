@@ -2,12 +2,18 @@ package main
 
 import (
 	"bot-keren/pkg/dcbot"
+	"log"
+	"os"
+
+	"github.com/joho/godotenv"
 )
 
-// Token tetap di main atau bisa dipindah ke environment variable nanti
-const BotToken = "TOKEN_BARU_ANDA_DISINI"
-
 func main() {
-	// Satu baris untuk menjalankan semuanya!
+	// Load Env
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("[ERROR] Error loading env:", err)
+	}
+	var BotToken = os.Getenv("BOT_TOKEN")
 	dcbot.Run(BotToken)
 }

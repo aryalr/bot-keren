@@ -4,13 +4,14 @@ import (
 	"context"
 	"fmt"
 	"log"
+	"os"
 	"sync"
 
 	"google.golang.org/genai"
 )
 
 var (
-	GEMINII_API string = "TOKEN_GEMINI_API"
+	GEMINII_API string = os.Getenv("GEMIN_TOKEN")
 	client      *genai.Client
 	once        sync.Once
 )

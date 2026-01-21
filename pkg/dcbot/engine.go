@@ -58,7 +58,7 @@ func MessageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 	balas, err := ai.Gemini(pesan)
 	if err != nil {
 		fmt.Println("[ERROR] Gemini:", err)
-		s.ChannelMessageSend(m.ChannelID, "Maaf, ada error di otak saya.")
+		s.ChannelMessageSend(m.ChannelID, "Maaf, engine sedang ada massalah (ERROR)")
 		return
 	}
 
