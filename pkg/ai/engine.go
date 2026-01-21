@@ -37,7 +37,7 @@ func Gemini(message string) (string, error) {
 	ctx := context.Background()
 	result, err := client.Models.GenerateContent(
 		ctx,
-		"gemini-3-flash",
+		"gemini-3-flash-preview",
 		genai.Text(message),
 		nil,
 	)
