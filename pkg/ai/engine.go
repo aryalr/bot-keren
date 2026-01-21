@@ -11,7 +11,7 @@ import (
 )
 
 var (
-	GEMINII_API string = os.Getenv("GEMIN_TOKEN")
+	GEMINII_API string = os.Getenv("GEMINI_TOKEN")
 	client      *genai.Client
 	once        sync.Once
 )
